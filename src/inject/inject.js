@@ -1,13 +1,9 @@
-chrome.extension.sendMessage({}, function(response) {
-	var readyStateCheckInterval = setInterval(function() {
-	if (document.readyState === "complete") {
-		clearInterval(readyStateCheckInterval);
-
-		// ----------------------------------------------------------
-		// This part of the script triggers when page is done loading
-		console.log("Hello. This message was sent from scripts/inject.js");
-		// ----------------------------------------------------------
-
-	}
-	}, 10);
-});
+var ul = document.getElementsByClassName("header-nav")[0];
+var li = document.createElement("li");
+li.setAttribute("class", "header-nav-item");
+var a = document.createElement("a");
+a.appendChild(document.createTextNode("Trending"));
+a.setAttribute("href", "https://www.github.com/trending");
+a.setAttribute("class", "header-nav-link");
+li.appendChild(a);
+ul.appendChild(li);
